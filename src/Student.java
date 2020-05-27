@@ -3,33 +3,41 @@ import java.util.ArrayList;
 
 public class Student {
     private String name;
-    private ArrayList<Integer> grades;
+    private int[] grades;
 
-    public Student(String name, ArrayList<Integer> grades) {
+    public Student(String name, int[] grades) {
         this.name = name;
-        grades = new ArrayList<Integer>();
+        this.grades = grades;
 
 
     }
 
     public String getName() {
+
         return name;
     }
 
 
-    public ArrayList<Integer> getGrades() {
+    public int[] getGrades() {
+
         return grades;
     }
 
-
-
-
+    private double srsum (int[] array) {
+        double sr = 0;
+        for (int i = 0; i < array.length; i++) {
+            sr += array[i];
+        }
+        sr/=array.length;
+        return sr;
+    }
 
 
     @Override
-    public  String toString() {
-        return "Student{" + ", name='" + name + "," + ", grades =" + grades + "}";
+    public String toString() {
+        return "У " + name + " средняя оценка: " + srsum(grades);
     }
+
 
 }
 
